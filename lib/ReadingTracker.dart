@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './widgets/CustomAppBar.dart';
+import './widgets/GreetingUserWidget.dart';
 
 class ReadingTracker extends StatelessWidget {
   static const String _title = 'Liv - Reading Tracker';
@@ -12,9 +13,7 @@ class ReadingTracker extends StatelessWidget {
       home: Scaffold(
         appBar: CustomAppBar(title: _title),
         body: SafeArea(
-          child: Column(
-            children: [const Text("Hello,"), const Text("Ms. Anne")],
-          ),
+          child: GreetingUserWidget(),
         ),
       ),
     );
