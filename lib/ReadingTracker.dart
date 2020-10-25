@@ -12,8 +12,11 @@ class ReadingTracker extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: CustomAppBar(title: _title),
-        body: SafeArea(
-          child: GreetingUserWidget(),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 5.0),
+          child: SafeArea(
+            child: GreetingUserWidget(),
+          ),
         ),
       ),
     );
