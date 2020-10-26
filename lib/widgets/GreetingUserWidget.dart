@@ -8,23 +8,25 @@ class GreetingUserWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        // padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-        child: RichText(
-      text: TextSpan(
-        text: 'Hello, \n',
-        style: TextStyle(
-          fontSize: 36,
-          color: Colors.black45,
-        ),
-        children: <TextSpan>[
-          TextSpan(
+      // padding: EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+      child: RichText(
+        text: TextSpan(
+          text: 'Hello, \n',
+          style: TextStyle(
+            fontSize: 36,
+            color: Colors.black45,
+          ),
+          children: <TextSpan>[
+            TextSpan(
               text: 'Ms. Anne!',
               style: TextStyle(
                 fontSize: 36,
                 color: Colors.black,
-              )),
-        ],
+              ),
+            ),
+          ],
+        ),
       ),
-    ));
+    );
   }
 }
