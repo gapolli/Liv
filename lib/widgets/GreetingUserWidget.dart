@@ -18,7 +18,7 @@ class GreetingUserWidget extends StatelessWidget {
           ),
           children: <TextSpan>[
             TextSpan(
-              text: 'Ms. Anne!',
+              text: 'Dear User!',
               style: TextStyle(
                 fontSize: 36,
                 color: Colors.black,

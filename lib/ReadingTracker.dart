@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './pages/Home.dart';
+import './pages/SignUp.dart';
 
 class ReadingTracker extends StatelessWidget {
   static const String _title = 'Liv - Reading Tracker';
@@ -9,7 +10,7 @@ class ReadingTracker extends StatelessWidget {
     return MaterialApp(
       title: _title,
       debugShowCheckedModeBanner: false,
-      home: Home(title: _title),
+      home: SignUp(),
     );
   }
 }
