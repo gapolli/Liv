@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class LoginWidget extends StatefulWidget {
+class Login extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return new _LoginWidget();
+    return new _Login();
   }
 }
 
-class _LoginWidget extends State<LoginWidget> {
+class _Login extends State<Login> {
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
