@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../widgets/TextTitle.dart';
+import '../widgets/TextSubtitle.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -14,20 +15,19 @@ class _SignUp extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 5.0),
-        child: SafeArea(
-          child: Expanded(
-            flex: 1,
-            child: SingleChildScrollView(
+      body: Center(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 5.0),
+          child: SingleChildScrollView(
+            child: SafeArea(
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Center(
                     child: TextTitle('Liv - Reading Tracker'),
                   ),
                   const Text('Sign Up and enjoy your reading'),
+                  Divider(),
                   SignUpForm(),
                 ],
               ),
@@ -83,36 +83,92 @@ class SignUpForm extends StatelessWidget {
               labelText: 'Password *',
             ),
           ),
-          Divider(),
-          Column(
-            children: [
-              const Text("Let us know the genres you like"),
-              CheckboxListTile(
-                title: const Text('Romance'),
-                value: false,
-                onChanged: (bool newValue) => print('Apertou aqui'),
-              ),
-              CheckboxListTile(
-                title: const Text('Horror'),
-                value: false,
-                onChanged: (bool newValue) => print('Apertou aqui'),
-              ),
-              CheckboxListTile(
-                title: const Text('Suspense'),
-                value: false,
-                onChanged: (bool newValue) => print('Apertou aqui'),
-              ),
-              CheckboxListTile(
-                title: const Text('Non-fiction'),
-                value: false,
-                onChanged: (bool newValue) => print('Apertou aqui'),
-              ),
-              CheckboxListTile(
-                title: const Text('Scientific Fiction'),
-                value: false,
-                onChanged: (bool newValue) => print('Apertou aqui'),
-              ),
-            ],
+          Container(
+            margin: EdgeInsets.only(top: 10),
+            child: Column(
+              children: <Widget>[
+                const TextSubtitle('Gender'),
+                ListTile(
+                  title: const Text('Male'),
+                  leading: Radio(
+                    value: false,
+                    groupValue: true,
+                    onChanged: (bool value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Female'),
+                  leading: Radio(
+                    value: false,
+                    groupValue: true,
+                    onChanged: (bool value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Non-binary'),
+                  leading: Radio(
+                    value: false,
+                    groupValue: true,
+                    onChanged: (bool value) {},
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Other'),
+                  leading: Radio(
+                    value: true,
+                    groupValue: true,
+                    onChanged: (bool value) {
+                      print('Something');
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ),
+          TextSubtitle("Let us know the genres you like"),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 10),
+            child: Wrap(
+              spacing: 10,
+              runSpacing: 10,
+              children: <Widget>[
+                ChoiceChip(
+                  label: Text('Romance'),
+                  selected: false,
+                  onSelected: (bool selected) {
+                    print("minha nossa");
+                  },
+                ),
+                ChoiceChip(
+                  label: Text('Horror'),
+                  selected: false,
+                  onSelected: (bool selected) {
+                    print("minha nossa");
+                  },
+                ),
+                ChoiceChip(
+                  label: Text('Suspense'),
+                  selected: false,
+                  onSelected: (bool selected) {
+                    print("minha nossa");
+                  },
+                ),
+                ChoiceChip(
+                  label: Text('Non-fiction'),
+                  selected: false,
+                  onSelected: (bool selected) {
+                    print("minha nossa");
+                  },
+                ),
+                ChoiceChip(
+                  label: Text('Scientific Fiction'),
+                  selected: false,
+                  onSelected: (bool selected) {
+                    print("minha nossa");
+                  },
+                ),
+              ],
+            ),
           ),
           SwitchListTile(
             title: const Text('Reading Tracker newsletter'),
@@ -120,12 +176,23 @@ class SignUpForm extends StatelessWidget {
             onChanged: (bool val) => print('Apertou aqui'),
           ),
           Divider(),
-          RaisedButton(
-              color: Colors.white70,
-              child: Text("Submit"),
-              onPressed: () {
-                print('Apertou aqui');
-              }),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 0.0, vertical: 50.0),
+                child: RaisedButton(
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 30.0, vertical: 15.0),
+                  color: Colors.white54,
+                  child: Text("Submit"),
+                  onPressed: () {
+                    print('Apertou aqui');
+                  },
+                ),
+              ),
+            ],
+          )
         ],
       ),
     );
