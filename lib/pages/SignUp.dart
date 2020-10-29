@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/TextTitle.dart';
 import '../widgets/TextSubtitle.dart';
+import './Home.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -187,7 +188,13 @@ class SignUpForm extends StatelessWidget {
                   color: Colors.white54,
                   child: Text("Submit"),
                   onPressed: () {
-                    print('Apertou aqui');
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        fullscreenDialog: true,
+                        builder: (context) => Home(),
+                      ),
+                    );
                   },
                 ),
               ),
