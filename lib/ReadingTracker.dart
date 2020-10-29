@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import './pages/Home.dart';
 import './pages/SignUp.dart';
 
 class ReadingTracker extends StatelessWidget {
