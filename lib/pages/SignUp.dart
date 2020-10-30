@@ -188,12 +188,9 @@ class SignUpForm extends StatelessWidget {
                   color: Colors.white54,
                   child: Text("Submit"),
                   onPressed: () {
-                    Navigator.push(
+                    Navigator.pushNamed(
                       context,
-                      MaterialPageRoute(
-                        fullscreenDialog: true,
-                        builder: (context) => Home(),
-                      ),
+                      '/',
                     );
                   },
                 ),
