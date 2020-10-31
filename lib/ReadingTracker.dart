@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './widgets/CustomAppBar.dart';
+import './widgets/MyBottomNavBar.dart';
 import './pages/Home.dart';
 
 class ReadingTracker extends StatefulWidget {
@@ -21,7 +22,6 @@ class _ReadingTracker extends State<ReadingTracker> {
   ];
 
   void _onItemTapped(int index) {
-    print("Apertou essa porra");
     setState(() {
       _selectedPage = index;
     });
@@ -39,31 +39,9 @@ class _ReadingTracker extends State<ReadingTracker> {
           child: _pages.elementAt(_selectedPage),
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        elevation: 3,
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.book),
-            label: 'Reading',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.library_books),
-            label: 'Explore',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'User',
-          ),
-        ],
-        currentIndex: _selectedPage,
-        unselectedItemColor: Colors.black54,
-        showUnselectedLabels: true,
-        selectedItemColor: Colors.amber[800],
-        onTap: _onItemTapped,
+      bottomNavigationBar: MyBottomNavBar(
+        onItemTapped: _onItemTapped,
+        selectedPage: _selectedPage,
       ),
     );
   }
