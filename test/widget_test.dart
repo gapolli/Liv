@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 
-import 'package:gv_reading_tracker/pages/Home.dart';
+import 'package:liv_reading_tracker/pages/Home.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {

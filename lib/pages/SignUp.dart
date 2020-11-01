@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../widgets/TextTitle.dart';
 import '../widgets/TextSubtitle.dart';
-import './Home.dart';
+//import './Home.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -11,7 +11,7 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUp extends State<SignUp> {
-  final _formKey = GlobalKey<FormState>();
+  //final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +80,7 @@ class SignUpForm extends StatelessWidget {
               return null;
             },
             decoration: const InputDecoration(
-              hintText: 'Your email address',
+              hintText: 'Your password',
               labelText: 'Password *',
             ),
           ),
