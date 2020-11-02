@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import '../widgets/TextTitle.dart';
-import '../widgets/TextSubtitle.dart';
-//import './Home.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -24,10 +21,17 @@ class _SignUp extends State<SignUp> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Center(
-                    child: TextTitle('Liv - Reading Tracker'),
+                  Container(
+                    margin: EdgeInsets.symmetric(vertical: 30),
+                    child: Center(
+                      child: Text('Liv - Reading Tracker',
+                          style: Theme.of(context).textTheme.headline6),
+                    ),
                   ),
-                  const Text('Sign Up and enjoy your reading'),
+                  Text(
+                    'Sign Up and enjoy your reading',
+                    style: Theme.of(context).textTheme.subtitle2,
+                  ),
                   Divider(),
                   SignUpForm(),
                 ],
@@ -88,7 +92,10 @@ class SignUpForm extends StatelessWidget {
             margin: EdgeInsets.only(top: 10),
             child: Column(
               children: <Widget>[
-                const TextSubtitle('Gender'),
+                Text(
+                  'Gender',
+                  style: Theme.of(context).textTheme.caption,
+                ),
                 ListTile(
                   title: const Text('Male'),
                   leading: Radio(
@@ -126,7 +133,10 @@ class SignUpForm extends StatelessWidget {
               ],
             ),
           ),
-          TextSubtitle("Let us know the genres you like"),
+          Text(
+            "Let us know the genres you like",
+            style: Theme.of(context).textTheme.caption,
+          ),
           Container(
             margin: EdgeInsets.symmetric(vertical: 10),
             child: Wrap(

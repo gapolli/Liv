@@ -8,7 +8,8 @@ class BookListingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 2,
+      margin: EdgeInsets.symmetric(vertical: 10),
+      elevation: 1,
       child: Row(
         children: <Widget>[
           Column(
@@ -30,7 +31,7 @@ class BookListingCard extends StatelessWidget {
             height: 175,
             width: MediaQuery.of(context).size.width * 0.5,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
                 Column(
@@ -44,7 +45,6 @@ class BookListingCard extends StatelessWidget {
                   ],
                 ),
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
@@ -60,12 +60,12 @@ class BookListingCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      "data em que foi adicionado a lista",
+                      "Data em que foi adicionado a lista",
                       style: TextStyle(
                         fontSize: 12,
                       ),
                     ),
-                    Text("as estrelinha"),
+                    Text("Avaliação do Livro"),
                   ],
                 )
               ],
