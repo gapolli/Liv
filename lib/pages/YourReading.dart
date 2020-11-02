@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:liv_reading_tracker/widgets/BookListingCard.dart';
+import '../widgets/BookListingCard.dart';
 import '../widgets/TextTitle.dart';
 
 class YourReading extends StatelessWidget {

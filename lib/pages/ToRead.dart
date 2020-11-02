@@ -4,19 +4,22 @@ import '../widgets/BookListingCard.dart';
 
 class ToRead extends StatelessWidget {
   ToRead({Key key}) : super(key: key);
+  final List<String> entries = <String>['A', 'B', 'C', 'D', 'E', 'F'];
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          const TextTitle("To Read"),
-          BookListingCard(),
-          BookListingCard(),
-          BookListingCard(),
-        ],
-      ),
+    return Expanded(
+      flex: 1,
+      child: entries.length > 0
+          ? ListView.builder(
+              itemCount: entries.length,
+              itemBuilder: (BuildContext context, int index) {
+                return BookListingCard();
+              },
+            )
+          : Center(
+              child: const Text("Empty"),
+            ),
     );
   }
 }
