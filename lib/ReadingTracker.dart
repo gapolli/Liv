@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import './widgets/CustomAppBar.dart';
 import './widgets/MyBottomNavBar.dart';
 import './pages/Home.dart';
+import './pages/CurrentlyReading.dart';
 
 class ReadingTracker extends StatefulWidget {
   ReadingTracker({Key key}) : super(key: key);
@@ -16,7 +17,7 @@ class _ReadingTracker extends State<ReadingTracker> {
 
   List<Widget> _pages = <Widget>[
     Home(),
-    Text("Reading"),
+    CurrentlyReading(),
     Text("Explore"),
     Text("User"),
   ];
