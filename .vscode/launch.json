@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "gv_reading_tracker",
+            "name": "liv_reading_tracker",
             "request": "launch",
             "type": "dart"
         }
