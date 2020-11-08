@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:liv_reading_tracker/pages/CurrentlyReading.dart';
 import 'package:liv_reading_tracker/pages/Explore.dart';
 import 'package:liv_reading_tracker/pages/Home.dart';
-import 'package:liv_reading_tracker/pages/User.dart';
+import 'package:liv_reading_tracker/pages/UserConfig.dart';
 import 'package:liv_reading_tracker/widgets/CustomAppBar.dart';
 import 'package:liv_reading_tracker/widgets/MyBottomNavBar.dart';
 
@@ -21,7 +21,7 @@ class _ReadingTracker extends State<ReadingTracker> {
     Home(),
     CurrentlyReading(),
     Explore(),
-    User(),
+    UserConfig(),
   ];
 
   void _onItemTapped(int index) {
