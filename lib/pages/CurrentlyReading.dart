@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../widgets/BookListingCard.dart';
-import '../widgets/TextTitle.dart';
+import 'package:liv_reading_tracker/widgets/BookListingCard.dart';
+import 'package:liv_reading_tracker/widgets/TextTitle.dart';
 
 class CurrentlyReading extends StatelessWidget {
   CurrentlyReading({Key key}) : super(key: key);

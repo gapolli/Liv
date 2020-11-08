@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import './ReadingTracker.dart';
-import './pages/SignUp.dart';
+import 'package:liv_reading_tracker/ReadingTracker.dart';
+import 'package:liv_reading_tracker/pages/SignUp.dart';
 
 void main() {
   runApp(App());

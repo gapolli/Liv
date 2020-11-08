@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import '../pages/YourReading.dart';
-import '../pages/ToRead.dart';
-import '../pages/Statistics.dart';
-import '../widgets/NestedTabBar.dart';
-import '../widgets/NestedTabBarView.dart';
+import 'package:liv_reading_tracker/pages/Statistics.dart';
+import 'package:liv_reading_tracker/pages/ToRead.dart';
+import 'package:liv_reading_tracker/pages/YourReading.dart';
+import 'package:liv_reading_tracker/widgets/NestedTabBar.dart';
+import 'package:liv_reading_tracker/widgets/NestedTabBarView.dart';
 
 class Home extends StatefulWidget {
   Home({Key key}) : super(key: key);

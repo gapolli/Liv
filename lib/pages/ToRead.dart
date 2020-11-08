@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../widgets/TextTitle.dart';
-import '../widgets/BookListingCard.dart';
+import 'package:liv_reading_tracker/widgets/BookListingCard.dart';
+import 'package:liv_reading_tracker/widgets/TextTitle.dart';
 
 class ToRead extends StatelessWidget {
   ToRead({Key key}) : super(key: key);

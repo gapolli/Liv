@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../widgets/TextTitle.dart';
-import '../widgets/StatisticsCard.dart';
+import 'package:liv_reading_tracker/widgets/StatisticsCard.dart';
+import 'package:liv_reading_tracker/widgets/TextTitle.dart';
 
 /*
 * https://google.github.io/charts/flutter/example/bar_charts/simple
