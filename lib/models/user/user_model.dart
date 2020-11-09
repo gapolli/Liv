@@ -1,6 +1,6 @@
+import 'package:liv_reading_tracker/models/user/user.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'package:liv_reading_tracker/database/user_database_helper.dart';
-import 'user.dart';
 
 class UserModel extends Model {
   int _stackIndex = 0;
@@ -13,8 +13,8 @@ class UserModel extends Model {
     notifyListeners();
   }
 
-  get note => _user;
-  set note(User newUser) {
+  get user => _user;
+  set user(User newUser) {
     _user = newUser;
     notifyListeners();
   }
