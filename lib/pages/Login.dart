@@ -60,7 +60,7 @@ class LoginForm extends StatelessWidget {
             validator: (value) {
               if (value.isEmpty) return 'Please enter some text';
               if (!value.contains('@'))
-                return "Please, insert a valid email address";
+                return 'Please, insert a valid email address';
               return null;
             },
             decoration: const InputDecoration(
@@ -70,12 +70,12 @@ class LoginForm extends StatelessWidget {
             ),
           ),
           TextFormField(
-            //TODO: obscure text
             validator: (value) {
               if (value.isEmpty) return 'Please enter some text';
-              if (value.length < 8) return "Please, insert a secure password";
+              if (value.length < 8) return 'Please, insert a secure password';
               return null;
             },
+            obscureText: true,
             decoration: const InputDecoration(
               icon: Icon(Icons.security),
               hintText: 'Your password',

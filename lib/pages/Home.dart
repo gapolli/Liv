@@ -16,9 +16,9 @@ class _Home extends State<Home> with SingleTickerProviderStateMixin {
   TabController _nestedTabController;
 
   final _myTabs = <Widget>[
-    Tab(text: "Your Reading"),
-    Tab(text: "To Read"),
-    Tab(text: "Statistics"),
+    Tab(text: 'Your Reading'),
+    Tab(text: 'To Read'),
+    Tab(text: 'Statistics'),
   ];
 
   final _tabPages = <Widget>[

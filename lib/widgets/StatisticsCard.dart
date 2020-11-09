@@ -13,7 +13,11 @@ class StatisticsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 2,
-      child: Row(),
+      child: Row(
+        children: [
+          //TODO: Some content here
+        ],
+      ),
     );
   }
 }

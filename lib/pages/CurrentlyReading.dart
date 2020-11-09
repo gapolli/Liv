@@ -11,7 +11,7 @@ class CurrentlyReading extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          const TextTitle("Currently Reading"),
+          const TextTitle('Currently Reading'),
           BookListingCard(),
           Container(
             margin: EdgeInsets.symmetric(vertical: 20.0),
@@ -48,12 +48,12 @@ class CurrentlyReading extends StatelessWidget {
                           padding: EdgeInsets.symmetric(
                               horizontal: 30.0, vertical: 15.0),
                           color: Colors.white54,
-                          child: Text("Update"),
+                          child: Text('Update'),
                           onPressed: () {
                             Scaffold.of(context).showSnackBar(
                               SnackBar(
                                 content:
-                                    const Text("Info successfully updated"),
+                                    const Text('Info successfully updated'),
                               ),
                             );
                           },
@@ -62,7 +62,7 @@ class CurrentlyReading extends StatelessWidget {
                           padding: EdgeInsets.symmetric(
                               horizontal: 30.0, vertical: 15.0),
                           color: Colors.green[300],
-                          child: Text("Finish Book"),
+                          child: Text('Finish Book'),
                           onPressed: () {},
                         ),
                       ],

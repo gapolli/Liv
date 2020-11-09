@@ -18,7 +18,7 @@ class ToRead extends StatelessWidget {
               },
             )
           : Center(
-              child: const Text("Empty"),
+              child: const Text('Empty'),
             ),
     );
   }

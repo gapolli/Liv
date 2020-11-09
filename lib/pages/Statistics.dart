@@ -15,7 +15,7 @@ class Statistics extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        const TextTitle("Statistics"),
+        const TextTitle('Statistics'),
         StatisticsCard(),
         StatisticsCard(),
       ],

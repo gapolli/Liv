@@ -5,7 +5,7 @@ import 'user.dart';
 class UserModel extends Model {
   int _stackIndex = 0;
   List userList = [];
-  User _user = User("", "", "", "", false);
+  User _user = User('', '', '', '', false);
 
   get stackIndex => _stackIndex;
   set stackIndex(int newStackIndex) {

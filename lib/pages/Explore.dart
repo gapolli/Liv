@@ -9,7 +9,7 @@ class Explore extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        const TextTitle("Explore"),
+        const TextTitle('Explore'),
       ],
     );
   }

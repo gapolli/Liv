@@ -9,7 +9,7 @@ class UserConfig extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-        const TextTitle("User"),
+        const TextTitle('User'),
       ],
     );
   }
