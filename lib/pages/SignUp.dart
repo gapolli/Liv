@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import './../database/user_database_helper.dart';
 import '../models/user/user.dart';
 
+/*
+* https://github.com/latinosamuel/Flutter-Sqflite
+*/
+
 class SignUp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -67,6 +71,7 @@ class _SignUpForm extends State<SignUpForm> {
 
   @override
   Widget build(BuildContext context) {
+    bool _newsletter = false;
     return Form(
       key: _formKey,
       child: Column(
