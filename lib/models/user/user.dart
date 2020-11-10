@@ -1,24 +1,21 @@
 class User {
+  int _id;
   String _name;
   String _email;
   String _pwd;
   String _gender;
-  /*bool _genreRomance;
-  bool _genreHorror;
-  bool _genreSuspense;
-  bool _genreNonFiction;
-  bool _genreSciFi;*/
-  bool _newsletter;
+  int _newsletter;
 
-  User(this._name, this._email, this._pwd, this._gender, this._newsletter
-      /*, [this._genreRomance,
-      this._genreHorror,
-      this._genreSuspense,
-      this._genreNonFiction,
-      this._genreSciFi]*/
-      );
+  User(
+      [this._id,
+      this._name,
+      this._email,
+      this._pwd,
+      this._gender,
+      this._newsletter]);
 
   User.fromMap(map) {
+    this._id = map['id'];
     this._name = map['name'];
     this._email = map['email'];
     this._pwd = map['pwd'];
@@ -26,11 +23,16 @@ class User {
     this._newsletter = map['newsletter'];
   }
 
+  int get id => _id;
   String get name => _name;
   String get email => _email;
   String get pwd => _pwd;
   String get gender => _gender;
-  bool get newsletter => _newsletter;
+  int get newsletter => _newsletter;
+
+  set id(var newId) {
+    this._id = newId;
+  }
 
   set name(String newName) {
     if (newName.length > 0) this._name = newName;
@@ -48,12 +50,13 @@ class User {
     if (newGender.length > 0) this._gender = newGender;
   }
 
-  set newsletter(bool newNewsletter) {
+  set newsletter(int newNewsletter) {
     this._newsletter = newNewsletter;
   }
 
   toMap() {
     var map = Map<String, dynamic>();
+    map['id'] = _id;
     map['name'] = _name;
     map['email'] = _email;
     map['pwd'] = _pwd;

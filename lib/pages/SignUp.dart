@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import './../database/user_database_helper.dart';
+import '../models/user/user.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -8,8 +10,6 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUp extends State<SignUp> {
-  //final _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,20 +44,41 @@ class _SignUp extends State<SignUp> {
   }
 }
 
-class SignUpForm extends StatelessWidget {
-  const SignUpForm({
-    Key key,
-  }) : super(key: key);
+class SignUpForm extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return new _SignUpForm();
+  }
+}
+
+enum Gender {
+  masculino,
+  feminino,
+  nonbinary,
+  other,
+}
+
+class _SignUpForm extends State<SignUpForm> {
+  final _formKey = GlobalKey<FormState>();
+  User model = User();
+
+  bool _newsletter = false;
+  Gender _gender;
 
   @override
   Widget build(BuildContext context) {
     return Form(
+      key: _formKey,
       child: Column(
         children: <Widget>[
           TextFormField(
             validator: (value) {
               if (value.isEmpty) return 'Please enter some text';
+              _formKey.currentState.save();
               return null;
+            },
+            onSaved: (String value) {
+              model.name = value;
             },
             decoration: const InputDecoration(
               hintText: 'Your full name',
@@ -69,7 +90,11 @@ class SignUpForm extends StatelessWidget {
               if (value.isEmpty) return 'Please enter some text';
               if (!value.contains('@'))
                 return 'Please, insert a valid email address';
+              _formKey.currentState.save();
               return null;
+            },
+            onSaved: (String value) {
+              model.email = value;
             },
             decoration: const InputDecoration(
               hintText: 'Your email address',
@@ -81,7 +106,13 @@ class SignUpForm extends StatelessWidget {
               if (value.isEmpty) return 'Please enter some text';
               if (value.length < 8)
                 return 'The password must have at least 8 characters';
+
+              _formKey.currentState.save();
+
               return null;
+            },
+            onSaved: (String value) {
+              model.pwd = value;
             },
             decoration: const InputDecoration(
               hintText: 'Your password',
@@ -99,34 +130,48 @@ class SignUpForm extends StatelessWidget {
                 ListTile(
                   title: const Text('Male'),
                   leading: Radio(
-                    value: false,
-                    groupValue: true,
-                    onChanged: (bool value) {},
+                    value: Gender.masculino,
+                    groupValue: _gender,
+                    onChanged: (Gender value) {
+                      setState(() {
+                        _gender = value;
+                      });
+                    },
                   ),
                 ),
                 ListTile(
                   title: const Text('Female'),
                   leading: Radio(
-                    value: false,
-                    groupValue: true,
-                    onChanged: (bool value) {},
+                    value: Gender.feminino,
+                    groupValue: _gender,
+                    onChanged: (Gender value) {
+                      setState(() {
+                        _gender = value;
+                      });
+                    },
                   ),
                 ),
                 ListTile(
                   title: const Text('Non-binary'),
                   leading: Radio(
-                    value: false,
-                    groupValue: true,
-                    onChanged: (bool value) {},
+                    value: Gender.nonbinary,
+                    groupValue: _gender,
+                    onChanged: (Gender value) {
+                      setState(() {
+                        _gender = value;
+                      });
+                    },
                   ),
                 ),
                 ListTile(
                   title: const Text('Other'),
                   leading: Radio(
-                    value: true,
-                    groupValue: true,
-                    onChanged: (bool value) {
-                      print('Something');
+                    value: Gender.other,
+                    groupValue: _gender,
+                    onChanged: (Gender value) {
+                      setState(() {
+                        _gender = value;
+                      });
                     },
                   ),
                 ),
@@ -183,8 +228,12 @@ class SignUpForm extends StatelessWidget {
           ),
           SwitchListTile(
             title: const Text('Reading Tracker newsletter'),
-            value: false,
-            onChanged: (bool val) => print('Apertou aqui'),
+            value: _newsletter,
+            onChanged: (bool val) => {
+              setState(() {
+                _newsletter = val;
+              })
+            },
           ),
           Divider(),
           Row(
@@ -197,11 +246,20 @@ class SignUpForm extends StatelessWidget {
                       EdgeInsets.symmetric(horizontal: 30.0, vertical: 15.0),
                   color: Colors.white54,
                   child: Text('Submit'),
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      '/',
-                    );
+                  onPressed: () async {
+                    if (_formKey.currentState.validate()) {
+                      _formKey.currentState.save();
+
+                      var database = UserDatabaseHelper.helper;
+
+                      model.id = null;
+                      model.newsletter = _newsletter ? 1 : 0;
+                      model.gender = _gender.toString();
+
+                      await database.insertUser(model);
+                      List users = await database.getUserMapList();
+                      print(users);
+                    }
                   },
                 ),
               ),
