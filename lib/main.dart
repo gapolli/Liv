@@ -35,7 +35,7 @@ class App extends StatelessWidget {
         '/signup': (context) => SignUp(),
         '/': (context) => ReadingTracker(),
       },
-      initialRoute: '/login',
+      initialRoute: '/signup',
     );
   }
 }

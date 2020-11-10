@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+/*
+* https://github.com/latinosamuel/Flutter-Sqflite
+*/
+
 class SignUp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -51,6 +55,8 @@ class SignUpForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String _name, _email, _pwd, _gender;
+    bool _newsletter = false;
     return Form(
       child: Column(
         children: <Widget>[
@@ -63,6 +69,7 @@ class SignUpForm extends StatelessWidget {
               hintText: 'Your full name',
               labelText: 'Full Name *',
             ),
+            onSaved: (value) => _name = value,
           ),
           TextFormField(
             validator: (value) {
@@ -75,6 +82,7 @@ class SignUpForm extends StatelessWidget {
               hintText: 'Your email address',
               labelText: 'E-mail *',
             ),
+            onSaved: (value) => _email = value,
           ),
           TextFormField(
             validator: (value) {
@@ -87,6 +95,7 @@ class SignUpForm extends StatelessWidget {
               hintText: 'Your password',
               labelText: 'Password *',
             ),
+            onSaved: (value) => _pwd = value,
           ),
           Container(
             margin: EdgeInsets.only(top: 10),
@@ -101,7 +110,9 @@ class SignUpForm extends StatelessWidget {
                   leading: Radio(
                     value: false,
                     groupValue: true,
-                    onChanged: (bool value) {},
+                    onChanged: (bool value) {
+                      _gender = 'Male';
+                    },
                   ),
                 ),
                 ListTile(
@@ -109,7 +120,9 @@ class SignUpForm extends StatelessWidget {
                   leading: Radio(
                     value: false,
                     groupValue: true,
-                    onChanged: (bool value) {},
+                    onChanged: (bool value) {
+                      _gender = 'Female';
+                    },
                   ),
                 ),
                 ListTile(
@@ -117,7 +130,9 @@ class SignUpForm extends StatelessWidget {
                   leading: Radio(
                     value: false,
                     groupValue: true,
-                    onChanged: (bool value) {},
+                    onChanged: (bool value) {
+                      _gender = 'Non-binary';
+                    },
                   ),
                 ),
                 ListTile(
@@ -126,7 +141,7 @@ class SignUpForm extends StatelessWidget {
                     value: true,
                     groupValue: true,
                     onChanged: (bool value) {
-                      print('Something');
+                      _gender = 'Other';
                     },
                   ),
                 ),
