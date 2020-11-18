@@ -5,7 +5,7 @@ import 'package:liv_reading_tracker/database/user_database_helper.dart';
 class UserModel extends Model {
   int _stackIndex = 0;
   List userList = [];
-  User _user = User(null, '', '', '', '', 0);
+  User _user = User('', '', '', '', false);
 
   get stackIndex => _stackIndex;
   set stackIndex(int newStackIndex) {
