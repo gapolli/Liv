@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:liv_reading_tracker/widgets/BookListingCard.dart';
-import 'package:liv_reading_tracker/widgets/TextTitle.dart';
+import '../widgets/TextTitle.dart';
+import '../widgets/BookListingCard.dart';
 
 class ToRead extends StatelessWidget {
   ToRead({Key key}) : super(key: key);
@@ -18,7 +18,7 @@ class ToRead extends StatelessWidget {
               },
             )
           : Center(
-              child: const Text('Empty'),
+              child: const Text("Empty"),
             ),
     );
   }

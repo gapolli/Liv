@@ -22,7 +22,7 @@ class BookListingCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Center(
-                  child: const Text('Book cover'),
+                  child: const Text("Book cover"),
                 ),
               ),
             ],
@@ -37,7 +37,7 @@ class BookListingCard extends StatelessWidget {
                 Column(
                   children: [
                     Text(
-                      'Título do Livro',
+                      "Título do Livro",
                       style: TextStyle(
                         fontSize: 24,
                       ),
@@ -48,24 +48,24 @@ class BookListingCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'By nome do autor',
+                      "By nome do autor",
                       style: TextStyle(
                         fontSize: 18,
                       ),
                     ),
                     Text(
-                      'Ano',
+                      "Ano",
                       style: TextStyle(
                         fontSize: 12,
                       ),
                     ),
                     Text(
-                      'Data em que foi adicionado a lista',
+                      "Data em que foi adicionado a lista",
                       style: TextStyle(
                         fontSize: 12,
                       ),
                     ),
-                    Text('Avaliação do Livro'),
+                    Text("Avaliação do Livro"),
                   ],
                 )
               ],

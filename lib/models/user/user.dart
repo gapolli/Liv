@@ -19,11 +19,11 @@ class User {
       );
 
   User.fromMap(map) {
-    this._name = map['name'];
-    this._email = map['email'];
-    this._pwd = map['pwd'];
-    this._gender = map['gender'];
-    this._newsletter = map['newsletter'];
+    this._name = map["name"];
+    this._email = map["email"];
+    this._pwd = map["pwd"];
+    this._gender = map["gender"];
+    this._newsletter = map["newsletter"];
   }
 
   String get name => _name;
@@ -37,7 +37,7 @@ class User {
   }
 
   set email(String newEmail) {
-    if (newEmail.length > 0 && newEmail.contains('@')) this._email = newEmail;
+    if (newEmail.length > 0 && newEmail.contains("@")) this._email = newEmail;
   }
 
   set pwd(String newPassword) {
@@ -54,11 +54,11 @@ class User {
 
   toMap() {
     var map = Map<String, dynamic>();
-    map['name'] = _name;
-    map['email'] = _email;
-    map['pwd'] = _pwd;
-    map['gender'] = _gender;
-    map['newsletter'] = _newsletter;
+    map["name"] = _name;
+    map["email"] = _email;
+    map["pwd"] = _pwd;
+    map["gender"] = _gender;
+    map["newsletter"] = _newsletter;
     return map;
   }
 }

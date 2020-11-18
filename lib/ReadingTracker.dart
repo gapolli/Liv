@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:liv_reading_tracker/pages/CurrentlyReading.dart';
-import 'package:liv_reading_tracker/pages/Explore.dart';
-import 'package:liv_reading_tracker/pages/Home.dart';
-import 'package:liv_reading_tracker/pages/UserConfig.dart';
-import 'package:liv_reading_tracker/widgets/CustomAppBar.dart';
-import 'package:liv_reading_tracker/widgets/MyBottomNavBar.dart';
+import './widgets/CustomAppBar.dart';
+import './widgets/MyBottomNavBar.dart';
+import './pages/Home.dart';
+import './pages/CurrentlyReading.dart';
 
 class ReadingTracker extends StatefulWidget {
   ReadingTracker({Key key}) : super(key: key);
@@ -20,8 +18,8 @@ class _ReadingTracker extends State<ReadingTracker> {
   List<Widget> _pages = <Widget>[
     Home(),
     CurrentlyReading(),
-    Explore(),
-    UserConfig(),
+    Text("Explore"),
+    Text("User"),
   ];
 
   void _onItemTapped(int index) {

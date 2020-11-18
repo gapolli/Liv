@@ -26,11 +26,7 @@ class _StarRating extends State<StarRating> {
       allowHalfRating: true,
       spacing: 0.0,
       onRated: (value) {
-        setState(
-          () {
-            rating = value;
-          },
-        );
+        //TODO: implement onRated function
       },
     );
   }

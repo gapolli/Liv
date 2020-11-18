@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:liv_reading_tracker/ReadingTracker.dart';
-import 'package:liv_reading_tracker/pages/Login.dart';
-import 'package:liv_reading_tracker/pages/SignUp.dart';
+import './ReadingTracker.dart';
+import './pages/SignUp.dart';
 
 void main() {
   runApp(App());
@@ -31,11 +30,10 @@ class App extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       routes: {
-        '/login': (context) => Login(),
         '/signup': (context) => SignUp(),
         '/': (context) => ReadingTracker(),
       },
-      initialRoute: '/login',
+      initialRoute: '/signup',
     );
   }
 }

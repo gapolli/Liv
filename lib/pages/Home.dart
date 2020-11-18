@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:liv_reading_tracker/pages/Statistics.dart';
-import 'package:liv_reading_tracker/pages/ToRead.dart';
-import 'package:liv_reading_tracker/pages/YourReading.dart';
-import 'package:liv_reading_tracker/widgets/NestedTabBar.dart';
-import 'package:liv_reading_tracker/widgets/NestedTabBarView.dart';
+import '../pages/YourReading.dart';
+import '../pages/ToRead.dart';
+import '../pages/Statistics.dart';
+import '../widgets/NestedTabBar.dart';
+import '../widgets/NestedTabBarView.dart';
 
 class Home extends StatefulWidget {
   Home({Key key}) : super(key: key);
@@ -16,9 +16,9 @@ class _Home extends State<Home> with SingleTickerProviderStateMixin {
   TabController _nestedTabController;
 
   final _myTabs = <Widget>[
-    Tab(text: 'Your Reading'),
-    Tab(text: 'To Read'),
-    Tab(text: 'Statistics'),
+    Tab(text: "Your Reading"),
+    Tab(text: "To Read"),
+    Tab(text: "Statistics"),
   ];
 
   final _tabPages = <Widget>[

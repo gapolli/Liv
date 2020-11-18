@@ -7,11 +7,11 @@ class UserDatabaseHelper {
   static UserDatabaseHelper helper = UserDatabaseHelper._createInstance();
   static Database _database;
 
-  String userTable = 'usertable';
-  String colName = 'name';
-  String colEmail = 'email';
-  String colPwd = 'pwd';
-  String colGender = 'gender';
+  String userTable = "usertable";
+  String colName = "name";
+  String colEmail = "email";
+  String colPwd = "pwd";
+  String colGender = "gender";
 
   UserDatabaseHelper._createInstance();
 
@@ -24,7 +24,7 @@ class UserDatabaseHelper {
 
   Future<Database> initializeDatabase() async {
     Directory directory = await getApplicationDocumentsDirectory();
-    String path = directory.path + 'user.db';
+    String path = directory.path + "user.db";
 
     var userDatabase =
         await openDatabase(path, version: 1, onCreate: _createDb);
@@ -34,7 +34,7 @@ class UserDatabaseHelper {
 
   _createDb(Database db, int newVersion) async {
     await db.execute(
-        'CREATE TABLE $userTable ($colName text, $colEmail text, $colPwd text, $colGender text)');
+        "CREATE TABLE $userTable ($colName text, $colEmail text, $colPwd text, $colGender text)");
   }
 
   insertUser(User user) async {
@@ -45,7 +45,7 @@ class UserDatabaseHelper {
 
   getUserMapList() async {
     Database db = await this.database;
-    var result = await db.rawQuery('SELECT * FROM $userTable');
+    var result = await db.rawQuery("SELECT * FROM $userTable");
     return result;
   }
 
@@ -63,20 +63,20 @@ class UserDatabaseHelper {
   updateUser(User user) async {
     Database db = await this.database;
     var result = await db.update(userTable, user.toMap(),
-        where: '$colName = ?', whereArgs: [user.name]);
+        where: "$colName = ?", whereArgs: [user.name]);
     return result;
   }
 
   deleteUser(String name) async {
     Database db = await this.database;
     int result =
-        await db.rawDelete('DELETE FROM $userTable WHERE $colName = $name');
+        await db.rawDelete("DELETE FROM $userTable WHERE $colName = $name");
     return result;
   }
 
   getCount() async {
     Database db = await this.database;
-    var x = await db.rawQuery('SELECT COUNT(*) FROM $userTable');
+    var x = await db.rawQuery("SELECT COUNT(*) FROM $userTable");
     int result = Sqflite.firstIntValue(x);
     return result;
   }

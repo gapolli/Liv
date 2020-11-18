@@ -68,7 +68,7 @@ class SignUpForm extends StatelessWidget {
             validator: (value) {
               if (value.isEmpty) return 'Please enter some text';
               if (!value.contains('@'))
-                return 'Please, insert a valid email address';
+                return "Please, insert a valid email address";
               return null;
             },
             decoration: const InputDecoration(
@@ -134,7 +134,7 @@ class SignUpForm extends StatelessWidget {
             ),
           ),
           Text(
-            'Let us know the genres you like',
+            "Let us know the genres you like",
             style: Theme.of(context).textTheme.caption,
           ),
           Container(
@@ -147,35 +147,35 @@ class SignUpForm extends StatelessWidget {
                   label: Text('Romance'),
                   selected: false,
                   onSelected: (bool selected) {
-                    print('minha nossa');
+                    print("minha nossa");
                   },
                 ),
                 ChoiceChip(
                   label: Text('Horror'),
                   selected: false,
                   onSelected: (bool selected) {
-                    print('minha nossa');
+                    print("minha nossa");
                   },
                 ),
                 ChoiceChip(
                   label: Text('Suspense'),
                   selected: false,
                   onSelected: (bool selected) {
-                    print('minha nossa');
+                    print("minha nossa");
                   },
                 ),
                 ChoiceChip(
                   label: Text('Non-fiction'),
                   selected: false,
                   onSelected: (bool selected) {
-                    print('minha nossa');
+                    print("minha nossa");
                   },
                 ),
                 ChoiceChip(
                   label: Text('Scientific Fiction'),
                   selected: false,
                   onSelected: (bool selected) {
-                    print('minha nossa');
+                    print("minha nossa");
                   },
                 ),
               ],
@@ -196,7 +196,7 @@ class SignUpForm extends StatelessWidget {
                   padding:
                       EdgeInsets.symmetric(horizontal: 30.0, vertical: 15.0),
                   color: Colors.white54,
-                  child: Text('Submit'),
+                  child: Text("Submit"),
                   onPressed: () {
                     Navigator.pushNamed(
                       context,
