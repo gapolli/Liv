@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 
-/*
-* https://github.com/latinosamuel/Flutter-Sqflite
-*/
-
 class SignUp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -55,7 +51,6 @@ class SignUpForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool _newsletter = false;
     return Form(
       child: Column(
         children: <Widget>[
