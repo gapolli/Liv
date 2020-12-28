@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../pages/YourReading.dart';
 import '../pages/ToRead.dart';
-import '../pages/Statistics.dart';
 import '../widgets/NestedTabBar.dart';
 import '../widgets/NestedTabBarView.dart';
 
@@ -18,13 +17,11 @@ class _Home extends State<Home> with SingleTickerProviderStateMixin {
   final _myTabs = <Widget>[
     Tab(text: "Your Reading"),
     Tab(text: "To Read"),
-    Tab(text: "Statistics"),
   ];
 
   final _tabPages = <Widget>[
     YourReading(),
     ToRead(),
-    Statistics(),
   ];
 
   @override

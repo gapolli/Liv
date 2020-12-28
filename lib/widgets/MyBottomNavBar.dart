@@ -13,7 +13,6 @@ class MyBottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      elevation: 3,
       items: const <BottomNavigationBarItem>[
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
@@ -24,19 +23,19 @@ class MyBottomNavBar extends StatelessWidget {
           label: 'Reading',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.library_books),
-          label: 'Explore',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: 'User',
+          icon: Icon(Icons.search),
+          label: 'Search',
         ),
       ],
       currentIndex: _selectedPage,
-      unselectedItemColor: Colors.black54,
+      unselectedItemColor: Colors.white,
+      selectedItemColor: Colors.black,
+      selectedLabelStyle: TextStyle(
+        color: Colors.black,
+      ),
       showUnselectedLabels: true,
-      selectedItemColor: Colors.amber[800],
       onTap: _onItemTapped,
+      backgroundColor: Color.fromRGBO(150, 140, 131, 1),
     );
   }
 }

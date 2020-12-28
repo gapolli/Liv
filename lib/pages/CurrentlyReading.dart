@@ -11,7 +11,13 @@ class CurrentlyReading extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          const TextTitle("Currently Reading"),
+          Container(
+            margin: EdgeInsets.symmetric(vertical: 20),
+            child: Text(
+              'Currently Reading',
+              style: Theme.of(context).textTheme.headline1,
+            ),
+          ),
           BookListingCard(),
           Container(
             margin: EdgeInsets.symmetric(vertical: 20.0),
@@ -45,12 +51,14 @@ class CurrentlyReading extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         RaisedButton(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 30.0, vertical: 15.0),
-                          color: Colors.white54,
-                          child: Text("Update"),
+                          elevation: 8,
+                          color: Theme.of(context).primaryColor,
+                          child: Text("Update",
+                              style: TextStyle(
+                                color: Colors.white,
+                              )),
                           onPressed: () {
-                            Scaffold.of(context).showSnackBar(
+                            ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
                                 content:
                                     const Text("Info successfully updated"),
@@ -59,9 +67,7 @@ class CurrentlyReading extends StatelessWidget {
                           },
                         ),
                         RaisedButton(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 30.0, vertical: 15.0),
-                          color: Colors.green[300],
+                          elevation: 8,
                           child: Text("Finish Book"),
                           onPressed: () {},
                         ),

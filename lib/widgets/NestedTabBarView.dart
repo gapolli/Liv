@@ -18,7 +18,7 @@ class NestedTabBarView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: screenHeight * 0.70,
-      margin: EdgeInsets.only(left: 16.0, right: 16.0),
+      margin: const EdgeInsets.symmetric(horizontal: 10),
       child: TabBarView(
         controller: _nestedTabController,
         children: _tabPages,

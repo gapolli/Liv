@@ -15,17 +15,28 @@ class App extends StatelessWidget {
       title: _title,
       theme: ThemeData(
         brightness: Brightness.light,
-        primaryColor: Colors.lightBlue[800],
-        accentColor: Colors.cyan[600],
+        scaffoldBackgroundColor: Color.fromRGBO(255, 249, 240, 1),
+        primaryColor: Color.fromRGBO(150, 140, 131, 1),
+        accentColor: Color.fromRGBO(247, 218, 217, 1),
         fontFamily: 'Roboto',
+        bottomNavigationBarTheme: BottomNavigationBarThemeData(
+          elevation: 10,
+          selectedItemColor: Colors.pink,
+        ),
         textTheme: TextTheme(
-          headline1: TextStyle(fontSize: 36.0, fontWeight: FontWeight.w500),
-          headline6: TextStyle(fontSize: 36.0, fontWeight: FontWeight.w100),
+          headline1: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w500),
+          headline6: TextStyle(fontSize: 28.0, fontWeight: FontWeight.w100),
           caption: TextStyle(fontSize: 18.0, color: Colors.black54),
           subtitle2: TextStyle(
-              fontSize: 14.0,
-              color: Colors.grey[900],
-              fontWeight: FontWeight.w300),
+            fontSize: 14.0,
+            color: Colors.grey[900],
+            fontWeight: FontWeight.w300,
+          ),
+        ),
+        buttonTheme: ButtonThemeData(
+          buttonColor: Color.fromRGBO(247, 218, 217, 1),
+          height: 50,
+          minWidth: 140,
         ),
       ),
       debugShowCheckedModeBanner: false,
@@ -33,7 +44,7 @@ class App extends StatelessWidget {
         '/signup': (context) => SignUp(),
         '/': (context) => ReadingTracker(),
       },
-      initialRoute: '/signup',
+      initialRoute: '/',
     );
   }
 }

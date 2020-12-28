@@ -9,14 +9,14 @@ class BookListingCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       margin: EdgeInsets.symmetric(vertical: 10),
-      elevation: 1,
+      elevation: 5,
       child: Row(
         children: <Widget>[
           Column(
             children: <Widget>[
               Container(
                 height: 175,
-                width: 125,
+                width: MediaQuery.of(context).size.width * 0.25,
                 decoration: BoxDecoration(
                   color: Colors.grey[400],
                   borderRadius: BorderRadius.circular(10),
@@ -30,6 +30,7 @@ class BookListingCard extends StatelessWidget {
           Container(
             height: 175,
             width: MediaQuery.of(context).size.width * 0.5,
+            padding: EdgeInsets.only(left: 10),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -39,7 +40,7 @@ class BookListingCard extends StatelessWidget {
                     Text(
                       "Título do Livro",
                       style: TextStyle(
-                        fontSize: 24,
+                        fontSize: 20,
                       ),
                     ),
                   ],
@@ -50,7 +51,7 @@ class BookListingCard extends StatelessWidget {
                     Text(
                       "By nome do autor",
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 16,
                       ),
                     ),
                     Text(
