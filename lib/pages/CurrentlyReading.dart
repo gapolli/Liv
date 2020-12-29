@@ -58,7 +58,7 @@ class CurrentlyReading extends StatelessWidget {
                                 color: Colors.white,
                               )),
                           onPressed: () {
-                            ScaffoldMessenger.of(context).showSnackBar(
+                            Scaffold.of(context).showSnackBar(
                               SnackBar(
                                 content:
                                     const Text("Info successfully updated"),
