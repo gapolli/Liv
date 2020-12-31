@@ -20,7 +20,7 @@ class BookDatabaseHelper {
       join(await getDatabasesPath(), 'book_database.db'),
       onCreate: (db, version) {
         return db.execute(
-          "CREATE TABLE books(id INTEGER PRIMARY KEY, cover TEXT, title TEXT, author TEXT, year INTEGER, date DATETIME, rating INTEGER, reading INTEGER, to_read INTEGER)",
+          "CREATE TABLE books(id INTEGER PRIMARY KEY, cover_path TEXT, title TEXT, author TEXT, year INTEGER, date TEXT, rating INTEGER, reading INTEGER, to_read INTEGER)",
         );
       },
       version: _version,
@@ -42,7 +42,7 @@ class BookDatabaseHelper {
     return List.generate(maps.length, (i) {
       return Book(
           id: maps[i]['id'],
-          cover: maps[i]['cover'],
+          coverPath: maps[i]['cover_path'],
           title: maps[i]['title'],
           author: maps[i]['author'],
           year: maps[i]['year'],

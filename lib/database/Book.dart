@@ -1,17 +1,17 @@
 class Book {
   final int id;
-  final String cover;
+  final String coverPath;
   final String title;
   final String author;
   final int year;
-  final DateTime date;
+  final String date;
   final int rating;
   final int reading;
   final int toRead;
 
   Book({
     this.id,
-    this.cover,
+    this.coverPath,
     this.title,
     this.author,
     this.year,
@@ -24,7 +24,7 @@ class Book {
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'cover': cover,
+      'cover_path': coverPath,
       'title': title,
       'author': author,
       'year': year,
@@ -37,6 +37,6 @@ class Book {
 
   @override
   String toString() {
-    return 'Book{id: $id, cover: $cover, title: $title, author: $author, year: $year, date: $date, rating: $rating, reading: $reading, to_read: $toRead}';
+    return 'Book{id: $id, cover: $coverPath, title: $title, author: $author, year: $year, date: $date, rating: $rating, reading: $reading, to_read: $toRead}';
   }
 }
