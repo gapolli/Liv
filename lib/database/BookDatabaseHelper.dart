@@ -30,7 +30,7 @@ class BookDatabaseHelper {
   Future<void> insertBook(Book book) async {
     final Database db = _db;
     await db.insert(
-      'Books',
+      'books',
       book.toMap(),
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
@@ -38,17 +38,18 @@ class BookDatabaseHelper {
 
   Future<List<Book>> books() async {
     final Database db = _db;
-    final List<Map<String, dynamic>> maps = await db.query('Books');
+    final List<Map<String, dynamic>> maps = await db.query('books');
     return List.generate(maps.length, (i) {
       return Book(
-        id: maps[i]['id'],
-        cover: maps[i]['cover'],
-        title: maps[i]['title'],
-        author: maps[i]['author'],
-        year: maps[i]['year'],
-        date: maps[i]['date'],
-        rating: maps[i]['rating'],
-      );
+          id: maps[i]['id'],
+          cover: maps[i]['cover'],
+          title: maps[i]['title'],
+          author: maps[i]['author'],
+          year: maps[i]['year'],
+          date: maps[i]['date'],
+          rating: maps[i]['rating'],
+          reading: maps[i]['reading'],
+          toRead: maps[i]['to_read']);
     });
   }
 
@@ -60,7 +61,6 @@ class BookDatabaseHelper {
       where: "id = ?",
       whereArgs: [book.id],
     );
-
     return res;
   }
 
@@ -71,7 +71,6 @@ class BookDatabaseHelper {
       where: "id = ?",
       whereArgs: [id],
     );
-
     return res;
   }
 }
