@@ -15,7 +15,7 @@ class _StarRating extends State<StarRating> {
   Widget build(BuildContext context) {
     return SmoothStarRating(
       rating: rating,
-      isReadOnly: false,
+      isReadOnly: true,
       size: 20,
       color: Colors.black,
       borderColor: Colors.black,
