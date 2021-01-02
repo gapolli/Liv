@@ -6,8 +6,8 @@ class Book {
   final int year;
   final String date;
   final int rating;
-  final int reading;
-  final int toRead;
+  final bool reading;
+  final bool toRead;
 
   Book({
     this.id,
@@ -21,17 +21,29 @@ class Book {
     this.toRead,
   });
 
+  factory Book.fromDatabase(Map<String, dynamic> data) => Book(
+        id: data['id'],
+        coverPath: data['cover_path'],
+        title: data['title'],
+        author: data['author'],
+        year: data['year'],
+        date: data['date'],
+        rating: data['rating'],
+        reading: data['reading'] == 0 ? false : true,
+        toRead: data['to_read'] == 0 ? false : true,
+      );
+
   Map<String, dynamic> toMap() {
     return {
-      'id': id,
-      'cover_path': coverPath,
-      'title': title,
-      'author': author,
-      'year': year,
-      'date': date,
-      'rating': rating,
-      'reading': reading,
-      'to_read': toRead,
+      'id': this.id,
+      'cover_path': this.coverPath,
+      'title': this.title,
+      'author': this.author,
+      'year': this.year,
+      'date': this.date,
+      'rating': this.rating,
+      'reading': this.reading == false ? 0 : 1,
+      'to_read': this.toRead == false ? 0 : 1,
     };
   }
 
