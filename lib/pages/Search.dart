@@ -28,17 +28,20 @@ class _SearchState extends State<Search> {
             ),
           ),
           Container(
+            alignment: Alignment.center,
             margin: EdgeInsets.only(bottom: 60),
             child: Form(
               child: Container(
-                width: MediaQuery.of(context).size.width * 0.75,
+                width: MediaQuery.of(context).size.width * 0.85,
                 child: TextFormField(
                   keyboardType: TextInputType.text,
-                  validator: (value) {
-                    if (value.isEmpty) return 'Please enter some text';
-                    return null;
-                  },
                   onChanged: (value) async {
+                    if (value == "")
+                      setState(() {
+                        booksFound.clear();
+                      });
+                    ;
+
                     final response = await http
                         .get(this.baseUrl + 'volumes?q=$value&key=$apiKey');
 
@@ -70,11 +73,16 @@ class _SearchState extends State<Search> {
               child: ListView.builder(
                 itemCount: booksFound.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return ResultCard(
-                    text: booksFound[index][index]['volumeInfo']['title'],
-                    thumb: booksFound[index][index]['volumeInfo']['imageLinks']
-                        ['smallThumbnail'],
-                  );
+                  if (booksFound[index] != null) {
+                    return ResultCard(
+                        text: booksFound[index][index]['volumeInfo']['title'],
+                        thumb: booksFound[index][index]['volumeInfo']
+                            ['imageLinks']['smallThumbnail']);
+                  } else {
+                    return Center(
+                      child: const Text("Search your favorite book :)"),
+                    );
+                  }
                 },
               ),
             ),
@@ -97,14 +105,14 @@ class ResultCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 3,
+      elevation: 1,
       margin: EdgeInsets.only(bottom: 25),
       child: Container(
         padding: EdgeInsets.symmetric(horizontal: 40, vertical: 10),
         color: Theme.of(context).scaffoldBackgroundColor,
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Container(
               height: 175,
@@ -117,6 +125,19 @@ class ResultCard extends StatelessWidget {
                 style: TextStyle(fontSize: 20),
               ),
             ),
+            Container(
+              child: IconButton(
+                tooltip: 'Add to To Read',
+                enableFeedback: true,
+                hoverColor: Colors.pink[300],
+                highlightColor: Colors.pink[300],
+                splashColor: Colors.pink[300],
+                iconSize: 32,
+                color: Colors.pink,
+                icon: Icon(Icons.add_circle_outline),
+                onPressed: () {},
+              ),
+            )
           ],
         ),
       ),
