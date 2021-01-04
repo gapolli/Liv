@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import '../database/Book.dart';
 
 class BookListingCard extends StatelessWidget {
-  const BookListingCard({
-    Key key,
-  }) : super(key: key);
+  final Book _book;
+  const BookListingCard({Key key, Book book})
+      : _book = book,
+        super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,14 +17,9 @@ class BookListingCard extends StatelessWidget {
           Column(
             children: <Widget>[
               Container(
-                height: 175,
-                width: MediaQuery.of(context).size.width * 0.25,
-                decoration: BoxDecoration(
-                  color: Colors.grey[400],
-                  borderRadius: BorderRadius.circular(10),
-                ),
+                width: MediaQuery.of(context).size.width * 0.31,
                 child: Center(
-                  child: const Text("Book cover"),
+                  child: Image.network(this._book.coverPath),
                 ),
               ),
             ],
@@ -38,7 +35,7 @@ class BookListingCard extends StatelessWidget {
                 Column(
                   children: [
                     Text(
-                      "Título do Livro",
+                      this._book.title,
                       style: TextStyle(
                         fontSize: 20,
                       ),
@@ -48,25 +45,18 @@ class BookListingCard extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // Text(
+                    //   "By nome do autor",
+                    //   style: TextStyle(
+                    //     fontSize: 16,
+                    //   ),
+                    // ),
                     Text(
-                      "By nome do autor",
-                      style: TextStyle(
-                        fontSize: 16,
-                      ),
-                    ),
-                    Text(
-                      "Ano",
-                      style: TextStyle(
-                        fontSize: 12,
-                      ),
-                    ),
-                    Text(
-                      "Data em que foi adicionado a lista",
+                      this._book.date.toString(),
                       style: TextStyle(
                         fontSize: 12,
                       ),
                     ),
-                    Text("Avaliação do Livro"),
                   ],
                 )
               ],

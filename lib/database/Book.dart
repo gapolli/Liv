@@ -1,13 +1,13 @@
 class Book {
-  final int id;
-  final String coverPath;
-  final String title;
-  final String author;
-  final int year;
-  final String date;
-  final int rating;
-  final bool reading;
-  final bool toRead;
+  int id;
+  String coverPath;
+  String title;
+  String author;
+  int year;
+  String date;
+  int rating;
+  bool reading;
+  bool toRead;
 
   Book({
     this.id,
@@ -45,6 +45,18 @@ class Book {
       'reading': this.reading == false ? 0 : 1,
       'to_read': this.toRead == false ? 0 : 1,
     };
+  }
+
+  Book.fromMap(map) {
+    this.id = map['id'];
+    this.coverPath = map['cover_path'];
+    this.title = map['title'];
+    this.author = map['author'];
+    this.year = map['year'];
+    this.date = map['date'];
+    this.rating = map['rating'];
+    this.reading = map['reading'] == 0 ? false : true;
+    this.toRead = map['to_read'] == 0 ? false : true;
   }
 
   @override

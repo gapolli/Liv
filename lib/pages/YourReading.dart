@@ -33,7 +33,7 @@ class YourReading extends StatelessWidget {
                       'Currently Reading',
                       style: Theme.of(context).textTheme.caption,
                     ),
-                    BookListingCard(),
+                    // BookListingCard(),
                   ],
                 ),
               ),

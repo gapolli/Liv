@@ -18,7 +18,9 @@ class CurrentlyReading extends StatelessWidget {
               style: Theme.of(context).textTheme.headline1,
             ),
           ),
-          BookListingCard(),
+          // BookListingCard(),
+          BookCover(),
+
           Container(
             margin: EdgeInsets.symmetric(vertical: 20.0),
             child: Form(
@@ -79,6 +81,30 @@ class CurrentlyReading extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class BookCover extends StatelessWidget {
+  const BookCover({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Container(
+        height: 175,
+        width: MediaQuery.of(context).size.width * 0.27,
+        margin: EdgeInsets.only(bottom: 20),
+        decoration: BoxDecoration(
+          color: Colors.grey[400],
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: Center(
+          child: const Text("Book cover"),
+        ),
       ),
     );
   }
