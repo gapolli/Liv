@@ -66,7 +66,6 @@ class _SearchState extends State<Search> {
                               rating: 0,
                               reading: false,
                               toRead: true,
-                              // author: item['volumeInfo']['authors'][0] as String,
                             ),
                           );
                         });
