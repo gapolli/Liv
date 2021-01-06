@@ -142,31 +142,63 @@ class _ResultCardState extends State<ResultCard> {
                 style: TextStyle(fontSize: 20),
               ),
             ),
-            Container(
-              child: IconButton(
-                tooltip: 'Add to To Read',
-                enableFeedback: true,
-                hoverColor: Colors.pink[300],
-                highlightColor: Colors.pink[300],
-                splashColor: Colors.pink[300],
-                iconSize: 32,
-                color: Colors.pink,
-                icon: Icon(Icons.add_circle_outline),
-                onPressed: isBtnDisabled
-                    ? null
-                    : () async {
-                        var db = BookDatabaseHelper.helper;
-                        await db.insertBook(this.widget._book);
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Container(
+                  child: IconButton(
+                    tooltip: 'Add to To Read',
+                    enableFeedback: true,
+                    hoverColor: Colors.pink[300],
+                    highlightColor: Colors.pink[300],
+                    splashColor: Colors.pink[300],
+                    iconSize: 32,
+                    color: Colors.pink,
+                    icon: Icon(Icons.add_circle_outline),
+                    onPressed: isBtnDisabled
+                        ? null
+                        : () async {
+                            var db = BookDatabaseHelper.helper;
+                            await db.insertBook(this.widget._book);
 
-                        var res = await db.getBooksList();
-                        print(res);
+                            var res = await db.getBooksList();
+                            print(res);
 
-                        setState(() {
-                          this.isBtnDisabled = true;
-                        });
-                      },
-              ),
-            )
+                            setState(() {
+                              this.isBtnDisabled = true;
+                            });
+                          },
+                  ),
+                ),
+                Container(
+                  child: IconButton(
+                    tooltip: 'Add to Reading',
+                    enableFeedback: true,
+                    hoverColor: Colors.pink[300],
+                    highlightColor: Colors.pink[300],
+                    splashColor: Colors.pink[300],
+                    iconSize: 32,
+                    color: Colors.pink,
+                    icon: Icon(Icons.my_library_books),
+                    onPressed: isBtnDisabled
+                        ? null
+                        : () async {
+                            this.widget._book.reading = true;
+                            this.widget._book.toRead = false;
+                            var db = BookDatabaseHelper.helper;
+                            await db.insertBook(this.widget._book);
+
+                            var res = await db.getBooksList();
+                            print(res);
+
+                            setState(() {
+                              this.isBtnDisabled = true;
+                            });
+                          },
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

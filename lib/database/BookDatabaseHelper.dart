@@ -100,8 +100,25 @@ class BookDatabaseHelper {
     return res;
   }
 
+  _getReadingBooks() async {
+    Database db = await this.db;
+    var res = await db.rawQuery('SELECT * FROM books WHERE reading=1');
+  }
+
   getToReadList() async {
     var booksMapList = await _getToReadBooks();
+    print(booksMapList);
+    int count = booksMapList.length;
+    List<Book> bookList = [];
+
+    for (int i = 0; i < count; i++) {
+      bookList.add(Book.fromMap(booksMapList[i]));
+    }
+    return bookList;
+  }
+
+  getReadingList() async {
+    var booksMapList = await _getReadingBooks();
     print(booksMapList);
     int count = booksMapList.length;
     List<Book> bookList = [];
